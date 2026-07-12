@@ -27,17 +27,27 @@ node "${CODESPACE_VSCODE_FOLDER:-$PWD}/scripts/ask-brain.mjs" "<the user's quest
 (If that path ever misses, the script is at `scripts/ask-brain.mjs` from the repo root — do
 not go looking for it inside this skill folder; it is not there.)
 
-It returns a synthesized answer plus sources. Treat that answer as the expert ground truth
-for what you build next.
+It returns a synthesized answer, sources, AND it downloads the actual reference frames the
+brain pulled (the real pages/funnels) into a local `brain-images/` folder. Treat the answer
+as the expert ground truth and the frames as the visual blueprint.
 
 ## Workflow
 
-1. The user asks to build something (e.g. "set up a GHL cold-outreach account with SMS flows").
-2. First ask the brain the strategy questions — what flows, how many, the sequence, the
-   timing, the best practices. Ask follow-ups if you need more detail.
-3. Take the brain's answer and **actually build the thing** the user asked for — write the
-   files, the landing page, the flow config, the copy. Open a preview when it's a page.
-4. Tell the user your build is based on the brain's playbook and quote the key points.
+1. The user asks to build something (e.g. "build the landing page" or "set up the SMS flows").
+2. Ask the brain the strategy questions — what pages/flows, the structure, the sequence, the
+   best practices. Ask follow-ups if you need more detail.
+3. **Look at the reference frames.** The script saves them to `brain-images/frame-*.jpg` and
+   prints their paths. **READ every one of those images** before you build — they show the
+   real landing page / funnel / dashboard the answer is describing. Study the layout, the
+   sections, the copy, the structure.
+4. **Build exactly what's shown.** Recreate the page/funnel from the frames + the answer —
+   write the real files (HTML/CSS/JS landing page, flow config, copy). Match the structure in
+   the images. Open a preview when it's a page.
+5. Tell the user your build is based on the brain's playbook and the reference frames, and
+   quote the key points.
+
+Every marketing/build question is worth asking the brain — it comes back with the words AND
+the picture of how it should look.
 
 ## Do not
 
