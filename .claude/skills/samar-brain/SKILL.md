@@ -17,9 +17,15 @@ ad copy, pricing, scaling — **do NOT answer from general knowledge. Ask the br
 
 ## How to ask it
 
+The query script lives at the **repo root** under `scripts/`. Always call it by its full
+workspace path so it works no matter what directory you're in:
+
 ```bash
-node scripts/ask-brain.mjs "<the user's question, phrased clearly>"
+node "${CODESPACE_VSCODE_FOLDER:-$PWD}/scripts/ask-brain.mjs" "<the user's question, phrased clearly>"
 ```
+
+(If that path ever misses, the script is at `scripts/ask-brain.mjs` from the repo root — do
+not go looking for it inside this skill folder; it is not there.)
 
 It returns a synthesized answer plus sources. Treat that answer as the expert ground truth
 for what you build next.
