@@ -1,0 +1,24 @@
+{
+  "name": "Ibiza Inner Circle - Samar Brain",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:20",
+  "features": { "ghcr.io/anthropics/devcontainer-features/claude-code:1": {} },
+  "remoteUser": "node",
+  "containerEnv": { "BRAIN_URL": "http://159.65.254.94:8080" },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "workbench.startupEditor": "readme",
+        "remote.autoForwardPorts": true
+      },
+      "extensions": ["esbenp.prettier-vscode","formulahendry.auto-rename-tag","bradlc.vscode-tailwindcss","pkief.material-icon-theme"]
+    }
+  },
+  "forwardPorts": [3000, 5173, 8080],
+  "portsAttributes": {
+    "3000": { "label": "Preview", "onAutoForward": "openPreview", "visibility": "public" },
+    "5173": { "label": "Vite Preview", "onAutoForward": "openPreview", "visibility": "public" }
+  },
+  "postCreateCommand": "npm install",
+  "postStartCommand": "echo '✅ Ready. Type: claude   then ask it to build something.'"
+}

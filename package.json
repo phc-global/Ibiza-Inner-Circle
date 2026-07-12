@@ -1,0 +1,3 @@
+{ "name": "ibiza-inner-circle", "version": "1.0.0", "private": true, "type": "module",
+  "description": "Ibiza Inner Circle — build with the Samar Brain",
+  "scripts": { "ask": "node scripts/ask-brain.mjs", "serve": "npx --yes serve -l 3000 ." } }
