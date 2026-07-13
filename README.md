@@ -13,24 +13,53 @@ You don't prompt a blank AI. You build on top of operators who've already done i
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/phc-global/Ibiza-Inner-Circle)
 
-1. Click the button. Wait for the environment to build (about a minute).
-2. In the terminal, type:
+1. Click the button. Wait for the environment to build (a couple of minutes the first time —
+   it's installing Node, Python, and a full toolchain).
+2. In the terminal, start Claude in **build mode** (skips the "can I do this?" prompts so it
+   just builds — safe here because this is a throwaway cloud sandbox):
 
    ```
-   claude
+   claude --dangerously-skip-permissions
    ```
 
-3. Ask it to build something. It will consult the brain first, then build it — right here.
+3. Paste one of the prompts below and watch it work.
 
-## Try these
+## Prompts to try (copy-paste these)
 
-- "Set up a GoHighLevel cold-outreach account. What SMS flows do I need, how many, and in what sequence?"
-- "Build me a landing page for a high-ticket coaching offer."
-- "What's the best offer-wall structure for a $5k program?"
-- "Write me the first 3 outreach messages I should send."
+**Build a landing page from the brain**
+```
+Use the samar-brain skill. Ask the brain how a high-ticket VSL landing page should look,
+read the reference frames it pulls, then build that exact landing page as a real HTML/CSS
+page in builds/landing-page/ and open a preview.
+```
 
-Claude asks the brain, gets the expert playbook, and then **builds the real files** in your
-workspace. Open the preview to see landing pages live.
+**Build the SMS dropout funnel**
+```
+Use the samar-brain skill. Ask it for the exact SMS flows for an ecom dropout funnel — how
+many, the sequence, the timing, the triggers — then write the full build spec to
+builds/sms-funnel/BUILD.md.
+```
+
+**Map the whole funnel**
+```
+Use the samar-brain skill. Pull the full funnel architecture from the brain, read the frames,
+and recreate it as a clean diagram I can use as my build reference.
+```
+
+**Set up GoHighLevel**
+```
+Use the ghl-build skill. Ask the brain what a cold-outreach GHL setup needs, then generate my
+exact GHL build spec — custom fields, workflows, SMS sequences with timing — in builds/ghl/.
+```
+
+**Write the offer + copy**
+```
+Use the samar-brain skill. Ask it how to structure and price a $5k high-ticket offer, then
+write the offer stack and the sales-page copy in builds/offer/.
+```
+
+Claude asks the brain, gets the expert playbook **plus the actual reference frames**, and then
+**builds the real files** in `builds/`. Open the preview to see landing pages live.
 
 ## How it works
 
