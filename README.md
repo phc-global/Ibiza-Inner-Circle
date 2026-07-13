@@ -58,6 +58,11 @@ Use the samar-brain skill. Ask it how to structure and price a $5k high-ticket o
 write the offer stack and the sales-page copy in builds/offer/.
 ```
 
+**Publish your page live**
+```
+Use the deploy-page skill to put the landing page I built live and give me the URL.
+```
+
 Claude asks the brain, gets the expert playbook **plus the actual reference frames**, and then
 **builds the real files** in `builds/`. Open the preview to see landing pages live.
 
