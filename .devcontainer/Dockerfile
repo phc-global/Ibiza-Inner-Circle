@@ -4,7 +4,9 @@ ENV DEBIAN_FRONTEND=noninteractive
 USER root
 
 # media + audio (/voice) + handy CLIs — baked so cold start doesn't install them
-RUN apt-get update \
+# (drop the universal image's stale yarn apt repo first — its GPG key is expired)
+RUN rm -f /etc/apt/sources.list.d/yarn.list /etc/apt/sources.list.d/*yarn* 2>/dev/null; \
+    apt-get update \
  && apt-get install -y --no-install-recommends \
       ffmpeg sox libsox-fmt-all \
       libportaudio2 portaudio19-dev libasound2-dev python3-pyaudio \
