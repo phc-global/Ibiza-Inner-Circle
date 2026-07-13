@@ -37,6 +37,6 @@
     "8000": { "label": "Python Server", "onAutoForward": "notify", "visibility": "public" }
   },
 
-  "postCreateCommand": "bash .devcontainer/setup.sh",
-  "postStartCommand": "echo '✅ Environment ready — Node, Python, and tools installed. Type: claude'"
+  "postCreateCommand": "npm install --no-fund --no-audit || true",
+  "postStartCommand": "echo '✅ Ready — Node, Python & tools are already here. Type: claude   (need ffmpeg/audio for /voice? run: bash .devcontainer/install-extras.sh)'"
 }
