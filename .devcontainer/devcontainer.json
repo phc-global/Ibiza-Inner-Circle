@@ -1,12 +1,8 @@
 {
   "name": "Ibiza Inner Circle - Samar Brain",
 
-  "// note": "universal image ships Node, Python, Ruby, Go, Java, common CLIs + build tools",
-  "image": "mcr.microsoft.com/devcontainers/universal:2-linux",
-
-  "features": {
-    "ghcr.io/anthropics/devcontainer-features/claude-code:1": {}
-  },
+  "// note": "prebuilt image — Node, Python, tools, media/audio deps AND Claude Code are baked in. Nothing installs at runtime.",
+  "image": "ghcr.io/phc-global/ibiza-inner-circle:latest",
 
   "containerEnv": { "BRAIN_URL": "http://159.65.254.94:8080" },
 
