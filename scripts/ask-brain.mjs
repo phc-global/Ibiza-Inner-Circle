@@ -28,7 +28,7 @@ try {
   console.log(data.answer || "(no answer returned)");
 
   // Download the reference frames so the model can look at them.
-  const shots = Array.isArray(data.screenshots) ? data.screenshots.slice(0, 6) : [];
+  const shots = Array.isArray(data.screenshots) ? data.screenshots.slice(0, 12) : [];
   if (shots.length) {
     await mkdir("brain-images", { recursive: true });
     const saved = [];
