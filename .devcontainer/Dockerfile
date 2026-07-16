@@ -14,5 +14,10 @@ RUN rm -f /etc/apt/sources.list.d/yarn.list /etc/apt/sources.list.d/*yarn* 2>/de
  && rm -rf /var/lib/apt/lists/*
 
 # Node global tooling + Claude Code CLI — baked so no runtime npm install
-RUN npm install -g @anthropic-ai/claude-code vite serve http-server typescript tsx nodemon \
+RUN npm install -g @anthropic-ai/claude-code vite serve http-server typescript tsx nodemon playwright \
  && npm cache clean --force
+
+# skool-download deps: yt-dlp (video) + Playwright chromium (baked so the skill works live)
+RUN curl -fsSL https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o /usr/local/bin/yt-dlp \
+ && chmod +x /usr/local/bin/yt-dlp \
+ && npx --yes playwright install --with-deps chromium
