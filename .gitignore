@@ -6,3 +6,8 @@ node_modules/
 build/
 dist/
 brain-images/
+skool-cookies.json
+*-cookies.json
+scripts/skool/.env
+scripts/skool/downloads/
+scripts/skool/node_modules/

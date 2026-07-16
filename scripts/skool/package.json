@@ -1,0 +1,7 @@
+{
+  "name": "skool-download",
+  "private": true,
+  "type": "commonjs",
+  "description": "Back up a Skool community you own (login -> collect ids -> scrape -> download)",
+  "dependencies": { "playwright": "^1.47.0" }
+}
