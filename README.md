@@ -38,30 +38,19 @@ ask it anything, right in your browser. Password: **`ibiza`**
 
 ## Prompts to try (copy-paste these)
 
-**Build a landing page from the brain**
+**Build a VSL landing page from the brain**
 ```
-Use the samar-brain skill. Ask the brain how a high-ticket VSL landing page should look,
-read the reference frames it pulls, then build that exact landing page as a real HTML/CSS
-page in builds/landing-page/ and open a preview.
+Use the samar-brain skill. Show me several different high-converting opt-in and VSL funnels
+the instructor has broken down or roasted — pull the actual page frames — then design a forex
+trading-bot VSL landing page that applies the best structural patterns from them.
 ```
 
-**Build the SMS dropout funnel**
+**Build the SMS follow-up funnel**
 ```
 Use the samar-brain skill. Ask it for the exact SMS flows for an ecom dropout funnel — how
-many, the sequence, the timing, the triggers — then write the full build spec to
-builds/sms-funnel/BUILD.md.
-```
-
-**Map the whole funnel**
-```
-Use the samar-brain skill. Pull the full funnel architecture from the brain, read the frames,
-and recreate it as a clean diagram I can use as my build reference.
-```
-
-**Write the offer + copy**
-```
-Use the samar-brain skill. Ask it how to structure and price a $5k high-ticket offer, then
-write the offer stack and the sales-page copy in builds/offer/.
+many messages, the sequence, the timing, the triggers, the actual message copy, and the tools
+they use to lift response rates — pull any reference frames it has, then write the full build
+spec to builds/sms-funnel/BUILD.md.
 ```
 
 Claude asks the brain, gets the expert playbook **plus the actual reference frames**, and then
