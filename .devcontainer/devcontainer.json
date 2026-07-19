@@ -34,5 +34,5 @@
   },
 
   "postCreateCommand": "npm install --no-fund --no-audit || true",
-  "postStartCommand": "echo '✅ Ready — Node, Python & tools are already here. Type: claude   (need ffmpeg/audio for /voice? run: bash .devcontainer/install-extras.sh)'"
+  "postStartCommand": "bash .devcontainer/seed-claude-auth.sh; echo '✅ Ready — Node, Python & tools are already here. Type: claude   (need ffmpeg/audio for /voice? run: bash .devcontainer/install-extras.sh)'"
 }
