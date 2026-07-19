@@ -10,7 +10,7 @@ import { mkdir, writeFile } from "node:fs/promises";
 const question = process.argv.slice(2).join(" ").trim();
 if (!question) { console.error('Usage: node scripts/ask-brain.mjs "your question"'); process.exit(1); }
 
-const BASE = process.env.BRAIN_URL || "http://159.65.254.94:8080";
+const BASE = process.env.BRAIN_URL || "https://api.thecirclebrain.com";
 const TOKEN = process.env.BRAIN_TOKEN || "";
 if (!TOKEN) { console.error("Missing BRAIN_TOKEN (set as a Codespace secret)."); process.exit(1); }
 const AUTH = { Authorization: `Bearer ${TOKEN}` };

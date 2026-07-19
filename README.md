@@ -15,14 +15,21 @@ You don't prompt a blank AI. You build on top of operators who've already done i
 
 1. Click the button. Wait for the environment to build (a couple of minutes the first time —
    it's installing Node, Python, and a full toolchain).
-2. In the terminal, start Claude in **build mode** (skips the "can I do this?" prompts so it
-   just builds — safe here because this is a throwaway cloud sandbox):
+2. In the terminal, log in to Claude — run `claude` and follow the quick sign-in with your
+   Claude account (Pro or Max):
+
+   ```
+   claude
+   ```
+
+3. Once you're signed in, restart it in **build mode** (skips the "can I do this?" prompts so
+   it just builds — safe here because this is a throwaway cloud sandbox):
 
    ```
    claude --dangerously-skip-permissions
    ```
 
-3. Paste one of the prompts below and watch it work.
+4. Paste one of the prompts below and watch it work.
 
 ## Prompts to try (copy-paste these)
 
@@ -46,21 +53,10 @@ Use the samar-brain skill. Pull the full funnel architecture from the brain, rea
 and recreate it as a clean diagram I can use as my build reference.
 ```
 
-**Set up GoHighLevel**
-```
-Use the ghl-build skill. Ask the brain what a cold-outreach GHL setup needs, then generate my
-exact GHL build spec — custom fields, workflows, SMS sequences with timing — in builds/ghl/.
-```
-
 **Write the offer + copy**
 ```
 Use the samar-brain skill. Ask it how to structure and price a $5k high-ticket offer, then
 write the offer stack and the sales-page copy in builds/offer/.
-```
-
-**Publish your page live**
-```
-Use the deploy-page skill to put the landing page I built live and give me the URL.
 ```
 
 Claude asks the brain, gets the expert playbook **plus the actual reference frames**, and then

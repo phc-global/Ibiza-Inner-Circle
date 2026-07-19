@@ -4,7 +4,7 @@
   "// note": "prebuilt image — Node, Python, tools, media/audio deps AND Claude Code are baked in. Nothing installs at runtime.",
   "image": "ghcr.io/phc-global/ibiza-inner-circle:latest",
 
-  "containerEnv": { "BRAIN_URL": "http://159.65.254.94:8080" },
+  "containerEnv": { "BRAIN_URL": "https://api.thecirclebrain.com" },
 
   "customizations": {
     "vscode": {
@@ -34,5 +34,5 @@
   },
 
   "postCreateCommand": "npm install --no-fund --no-audit || true",
-  "postStartCommand": "bash .devcontainer/seed-claude-auth.sh; echo '✅ Ready — Node, Python & tools are already here. Type: claude   (need ffmpeg/audio for /voice? run: bash .devcontainer/install-extras.sh)'"
+  "postStartCommand": "echo '✅ Ready — Node, Python & tools are already here. Log in with: claude   (need ffmpeg/audio for /voice? run: bash .devcontainer/install-extras.sh)'"
 }

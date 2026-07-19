@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Circle Brain · Ibiza Inner Circle</title>
+<meta name="description" content="Your own cloud machine with Claude Code, wired into the Samar Brain — top operators' playbooks turned into an AI you build with.">
+<meta property="og:title" content="The Circle Brain · Ibiza Inner Circle">
+<meta property="og:description" content="Build on top of operators who've already done it. One click, one cloud machine, one brain.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#120a14; --bg2:#1c0f16; --ink:#fbeede; --muted:#c9a98f;
+    --gold:#ffc46f; --gold2:#ff9f52; --sea:#1f5b63; --line:rgba(255,196,111,.18);
+    --card:rgba(255,255,255,.045);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    font-family:"Hanken Grotesk",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    color:var(--ink); background:var(--bg);
+    background-image:
+      radial-gradient(120% 70% at 78% -8%, rgba(255,159,82,.55) 0%, rgba(255,159,82,0) 42%),
+      radial-gradient(90% 55% at 82% 2%, rgba(255,196,111,.65) 0%, rgba(255,196,111,0) 34%),
+      linear-gradient(180deg,#2a1220 0%,#1a0e18 46%,#0f1b1c 100%);
+    background-attachment:fixed;
+    min-height:100vh; line-height:1.5;
+    -webkit-font-smoothing:antialiased; padding:env(safe-area-inset-top) 0 0;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:34px 20px 64px}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.32em;
+    text-transform:uppercase;color:var(--gold);opacity:.9;margin:0 0 14px}
+  h1{font-family:"Syne",sans-serif;font-weight:800;line-height:1.02;margin:0;
+    font-size:clamp(38px,11vw,68px);letter-spacing:-.01em}
+  h1 .sun{background:linear-gradient(92deg,var(--gold) 0%,var(--gold2) 60%,#ff7e6b 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent}
+  .lede{font-size:clamp(16px,4.4vw,20px);color:var(--ink);opacity:.92;margin:18px 0 4px;max-width:52ch}
+  .sub{font-size:15px;color:var(--muted);margin:6px 0 30px}
+  /* CTAs */
+  .cta{display:flex;flex-direction:column;gap:12px;margin:0 0 14px}
+  a.btn{display:flex;align-items:center;gap:14px;text-decoration:none;border-radius:16px;
+    padding:18px 20px;font-weight:600;font-size:17px;border:1px solid var(--line);
+    transition:transform .12s ease,box-shadow .12s ease}
+  a.btn:active{transform:scale(.985)}
+  a.primary{color:#1a0d06;background:linear-gradient(180deg,var(--gold) 0%,var(--gold2) 100%);
+    border-color:transparent;box-shadow:0 10px 34px rgba(255,159,82,.34)}
+  a.secondary{color:var(--ink);background:var(--card);backdrop-filter:blur(6px)}
+  .btn .ico{font-size:22px;line-height:1;filter:saturate(1.1)}
+  .btn .t{display:flex;flex-direction:column;gap:2px}
+  .btn .t small{font-weight:500;font-size:12.5px;opacity:.72}
+  a.secondary .t small{color:var(--muted)}
+  .arrow{margin-left:auto;opacity:.55;font-size:20px}
+  /* password chip */
+  .pw{display:inline-flex;align-items:center;gap:9px;margin:8px 0 30px;
+    font-family:"JetBrains Mono",monospace;font-size:13.5px;color:var(--muted)}
+  .pw b{color:var(--ink);background:rgba(255,196,111,.14);border:1px solid var(--line);
+    padding:4px 11px;border-radius:8px;letter-spacing:.06em}
+  /* steps */
+  h2{font-family:"Syne",sans-serif;font-weight:700;font-size:13px;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--gold);margin:34px 0 14px;opacity:.92}
+  ol.steps{list-style:none;counter-reset:s;margin:0 0 8px;padding:0}
+  ol.steps li{counter-increment:s;position:relative;padding:2px 0 16px 42px;color:var(--ink);opacity:.94}
+  ol.steps li::before{content:counter(s);position:absolute;left:0;top:0;
+    width:28px;height:28px;border-radius:50%;display:grid;place-items:center;
+    font-family:"JetBrains Mono",monospace;font-size:13px;color:var(--gold);
+    background:rgba(255,196,111,.1);border:1px solid var(--line)}
+  code{font-family:"JetBrains Mono",monospace;font-size:13px;color:var(--gold);
+    background:rgba(0,0,0,.32);border:1px solid var(--line);padding:2px 7px;border-radius:6px}
+  /* prompt cards */
+  .prompt{background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:15px 16px;margin:0 0 12px;position:relative}
+  .prompt .tag{font-family:"Syne",sans-serif;font-weight:700;font-size:14px;color:var(--gold);
+    display:block;margin-bottom:7px}
+  .prompt p{margin:0;font-size:14.5px;color:var(--ink);opacity:.9}
+  .prompt button{position:absolute;top:12px;right:12px;background:rgba(255,196,111,.12);
+    color:var(--gold);border:1px solid var(--line);border-radius:8px;padding:5px 11px;
+    font-family:"JetBrains Mono",monospace;font-size:11.5px;cursor:pointer}
+  .prompt button:active{transform:scale(.94)}
+  footer{margin-top:44px;padding-top:22px;border-top:1px solid var(--line);
+    font-size:13px;color:var(--muted);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  footer a{color:var(--gold);text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="eyebrow">The Circle · Ibiza · Inner Circle</p>
+  <h1>The Circle <span class="sun">Brain</span></h1>
+  <p class="lede">Your own cloud machine with <strong>Claude Code</strong> already installed — wired into the brain of top operators who've already done it.</p>
+  <p class="sub">You don't prompt a blank AI. You build on top of people who've already won.</p>
+
+  <div class="cta">
+    <a class="btn primary" href="https://codespaces.new/phc-global/Ibiza-Inner-Circle" target="_blank" rel="noopener">
+      <span class="ico">⚡</span>
+      <span class="t"><span>Open your cloud machine</span><small>Launches Claude Code in your browser — no install</small></span>
+      <span class="arrow">→</span>
+    </a>
+    <a class="btn secondary" href="https://brain.thecirclebrain.com" target="_blank" rel="noopener">
+      <span class="ico">🧠</span>
+      <span class="t"><span>Try the brain live</span><small>Ask it anything, right here in the browser</small></span>
+      <span class="arrow">→</span>
+    </a>
+  </div>
+  <div class="pw">brain password <b>ibiza</b></div>
+
+  <h2>How to start</h2>
+  <ol class="steps">
+    <li>Tap <strong>Open your cloud machine</strong> and wait a moment for it to build.</li>
+    <li>In the terminal, run <code>claude</code> and sign in with your Claude account.</li>
+    <li>Once in, run <code>claude --dangerously-skip-permissions</code> to let it build freely.</li>
+    <li>Paste a prompt below and watch it build the real thing.</li>
+  </ol>
+
+  <h2>Prompts to try</h2>
+
+  <div class="prompt">
+    <span class="tag">Build a landing page from the brain</span>
+    <button data-copy>Copy</button>
+    <p>Use the samar-brain skill. Ask the brain how a high-ticket VSL landing page should look, read the reference frames it pulls, then build that exact landing page as a real HTML/CSS page in builds/landing-page/ and open a preview.</p>
+  </div>
+
+  <div class="prompt">
+    <span class="tag">Build the SMS dropout funnel</span>
+    <button data-copy>Copy</button>
+    <p>Use the samar-brain skill. Ask it for the exact SMS flows for an ecom dropout funnel — how many, the sequence, the timing, the triggers — then write the full build spec to builds/sms-funnel/BUILD.md.</p>
+  </div>
+
+  <div class="prompt">
+    <span class="tag">Write the offer + copy</span>
+    <button data-copy>Copy</button>
+    <p>Use the samar-brain skill. Ask it how to structure and price a $5k high-ticket offer, then write the offer stack and the sales-page copy in builds/offer/.</p>
+  </div>
+
+  <div class="prompt">
+    <span class="tag">Map the whole funnel</span>
+    <button data-copy>Copy</button>
+    <p>Use the samar-brain skill. Pull the full funnel architecture from the brain, read the frames, and recreate it as a clean diagram I can use as my build reference.</p>
+  </div>
+
+  <footer>
+    <span>The Circle Brain — hosted by Samar Hussain</span>
+    <a href="https://brain.thecirclebrain.com">brain.thecirclebrain.com</a>
+  </footer>
+</div>
+
+<script>
+  document.querySelectorAll('[data-copy]').forEach(function(b){
+    b.addEventListener('click', function(){
+      var txt = b.parentElement.querySelector('p').textContent.trim();
+      navigator.clipboard.writeText(txt).then(function(){
+        var o = b.textContent; b.textContent = 'Copied ✓';
+        setTimeout(function(){ b.textContent = o; }, 1400);
+      });
+    });
+  });
+</script>
+</body>
+</html>
