@@ -11,8 +11,9 @@ const question = process.argv.slice(2).join(" ").trim();
 if (!question) { console.error('Usage: node scripts/ask-brain.mjs "your question"'); process.exit(1); }
 
 const BASE = process.env.BRAIN_URL || "https://api.thecirclebrain.com";
-const TOKEN = process.env.BRAIN_TOKEN || "";
-if (!TOKEN) { console.error("Missing BRAIN_TOKEN (set as a Codespace secret)."); process.exit(1); }
+// Shared workshop token — baked in on purpose so it works with zero setup for every
+// attendee. It only gates this demo brain (not sensitive); rotate after the event.
+const TOKEN = process.env.BRAIN_TOKEN || "debf6b4751ee49b5a9e5a3e2e7fadfe7b785967a95014d55";
 const AUTH = { Authorization: `Bearer ${TOKEN}` };
 
 try {
