@@ -1,8 +1,10 @@
 {
   "name": "Ibiza Inner Circle - Samar Brain",
 
-  "// note": "prebuilt image — Node, Python, tools, media/audio deps AND Claude Code are baked in. Nothing installs at runtime.",
-  "image": "ghcr.io/phc-global/ibiza-inner-circle:latest",
+  "// note": "Known-good setup: standard MS base + official Claude Code feature. Normal login (run `claude`). No custom image.",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:20",
+  "features": { "ghcr.io/anthropics/devcontainer-features/claude-code:1": {} },
+  "remoteUser": "node",
 
   "containerEnv": { "BRAIN_URL": "https://api.thecirclebrain.com" },
 
@@ -15,24 +17,19 @@
       },
       "extensions": [
         "esbenp.prettier-vscode",
-        "dbaeumer.vscode-eslint",
-        "ms-python.python",
-        "ms-python.vscode-pylance",
-        "bradlc.vscode-tailwindcss",
         "formulahendry.auto-rename-tag",
-        "christian-kohler.path-intellisense",
+        "bradlc.vscode-tailwindcss",
         "pkief.material-icon-theme"
       ]
     }
   },
 
-  "forwardPorts": [3000, 3001, 4000, 5000, 5173, 8000, 8080],
+  "forwardPorts": [3000, 5173, 8080],
   "portsAttributes": {
     "3000": { "label": "Preview", "onAutoForward": "openPreview", "visibility": "public" },
-    "5173": { "label": "Vite Preview", "onAutoForward": "openPreview", "visibility": "public" },
-    "8000": { "label": "Python Server", "onAutoForward": "notify", "visibility": "public" }
+    "5173": { "label": "Vite Preview", "onAutoForward": "openPreview", "visibility": "public" }
   },
 
-  "postCreateCommand": "npm install --no-fund --no-audit || true",
-  "postStartCommand": "echo '✅ Ready — Node, Python & tools are already here. Log in with: claude   (need ffmpeg/audio for /voice? run: bash .devcontainer/install-extras.sh)'"
+  "postCreateCommand": "npm install",
+  "postStartCommand": "echo '✅ Ready. Log in with: claude   (sign in with your Claude account), then build something.'"
 }
