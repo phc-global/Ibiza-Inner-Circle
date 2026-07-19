@@ -9,6 +9,11 @@ top operators' entire playbooks turned into an AI you can build with.
 
 You don't prompt a blank AI. You build on top of operators who've already done it.
 
+## See the brain live
+
+**🧠 [brain.thecirclebrain.com](https://brain.thecirclebrain.com)** — explore the knowledge graph and
+ask it anything, right in your browser. Password: **`ibiza`**
+
 ## Quick Start (One-Click!)
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/phc-global/Ibiza-Inner-Circle)
