@@ -1,23 +1,23 @@
-FROM mcr.microsoft.com/devcontainers/universal:2-linux
+# Lean base: Node + git + build tools on Debian. Boots MUCH faster than the
+# universal image (no conda / docker-in-docker / Go / PHP / Ruby / Java to init on start).
+FROM mcr.microsoft.com/devcontainers/javascript-node:20
 
 ENV DEBIAN_FRONTEND=noninteractive
 USER root
 
-# media + audio (/voice) + handy CLIs — baked so cold start doesn't install them
-# (drop the universal image's stale yarn apt repo first — its GPG key is expired)
-RUN rm -f /etc/apt/sources.list.d/yarn.list /etc/apt/sources.list.d/*yarn* 2>/dev/null; \
-    apt-get update \
+# Python + media/CLIs the skills use (kept tight)
+RUN apt-get update \
  && apt-get install -y --no-install-recommends \
-      ffmpeg sox libsox-fmt-all \
-      libportaudio2 portaudio19-dev libasound2-dev python3-pyaudio \
-      imagemagick jq ripgrep tree httpie unzip zip \
+      python3 python3-pip python3-venv \
+      ffmpeg imagemagick jq ripgrep tree unzip \
  && rm -rf /var/lib/apt/lists/*
 
-# Node global tooling + Claude Code CLI — baked so no runtime npm install
-RUN npm install -g @anthropic-ai/claude-code vite serve http-server typescript tsx nodemon playwright \
- && npm cache clean --force
+# Claude Code CLI + handy node tools + yt-dlp (small) — all baked so cold start does nothing
+RUN npm install -g @anthropic-ai/claude-code vite serve http-server tsx \
+ && npm cache clean --force \
+ && curl -fsSL https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o /usr/local/bin/yt-dlp \
+ && chmod +x /usr/local/bin/yt-dlp
 
-# skool-download deps: yt-dlp (video) + Playwright chromium (baked so the skill works live)
-RUN curl -fsSL https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o /usr/local/bin/yt-dlp \
- && chmod +x /usr/local/bin/yt-dlp \
- && npx --yes playwright install --with-deps chromium
+USER node
+# NOTE: Playwright's chromium is NOT baked (it's ~400MB and only skool-download needs it).
+# skool-download installs it on demand: `cd scripts/skool && npm install && npx playwright install chromium`

@@ -14,7 +14,8 @@ tokens are grabbed each run — nothing is bundled.
 
 1. Copy `scripts/skool/.env.example` to `scripts/skool/.env` and fill in YOUR values:
    `SKOOL_EMAIL`, `SKOOL_PASSWORD`, `SKOOL_COMMUNITY` (the slug in the URL, e.g. `skool.com/<slug>`).
-2. `cd scripts/skool && npm install` (installs Playwright). Needs `ffmpeg` + `yt-dlp` on PATH for video.
+2. `cd scripts/skool && npm install && npx playwright install chromium` (Playwright + browser).
+   `ffmpeg` + `yt-dlp` are already on PATH.
 
 ## Steps (run in order from `scripts/skool/`)
 
