@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/banner.svg" alt="Ibiza Inner Circle — Samar Brain" width="100%">
+  <img src="assets/banner.png" alt="Ibiza Inner Circle — Samar Brain" width="100%">
 </p>
 
 # Ibiza Inner Circle · Samar Brain
